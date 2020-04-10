@@ -36,7 +36,6 @@ class MainActivity : AppCompatActivity() {
         recyclerView.setHasFixedSize(true)
         val layoutManager = LinearLayoutManager(this)
         recyclerView.layoutManager = layoutManager
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
