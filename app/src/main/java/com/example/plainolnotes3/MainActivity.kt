@@ -1,12 +1,15 @@
 package com.example.plainolnotes3
 
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.plainolnotes3.databinding.ActivityMainBinding
+import com.example.plainolnotes3.model.NoteEntity
+import com.example.plainolnotes3.utilities.SampleData
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main.view.*
 import kotlinx.android.synthetic.main.content_main.view.*
@@ -14,6 +17,7 @@ import kotlinx.android.synthetic.main.content_main.view.*
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var recyclerView: RecyclerView
+    private val notesData = ArrayList<NoteEntity>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,6 +32,12 @@ class MainActivity : AppCompatActivity() {
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }
+
+        notesData.addAll(SampleData().getNotes())
+        for (note in notesData) {
+            Log.i("PlainOlNotes", note.toString())
+        }
+
         recyclerView = view.recyclerView
         initRecyclerView()
     }
