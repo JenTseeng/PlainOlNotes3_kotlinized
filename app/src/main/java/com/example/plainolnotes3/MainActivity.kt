@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.plainolnotes3.databinding.ActivityMainBinding
 import com.example.plainolnotes3.model.NoteEntity
+import com.example.plainolnotes3.ui.NotesAdapter
 import com.example.plainolnotes3.utilities.SampleData
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main.view.*
@@ -17,6 +18,8 @@ import kotlinx.android.synthetic.main.content_main.view.*
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var recyclerView: RecyclerView
+    private lateinit var notesAdapter: NotesAdapter
+
     private val notesData = ArrayList<NoteEntity>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,6 +49,9 @@ class MainActivity : AppCompatActivity() {
         recyclerView.setHasFixedSize(true)
         val layoutManager = LinearLayoutManager(this)
         recyclerView.layoutManager = layoutManager
+
+        notesAdapter = NotesAdapter(notesData)
+        recyclerView.adapter = notesAdapter
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
