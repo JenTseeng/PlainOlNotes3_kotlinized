@@ -1,5 +1,6 @@
 package com.example.plainolnotes3
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
@@ -30,11 +31,7 @@ class MainActivity : AppCompatActivity() {
 
         val toolbar = view.toolbar
         setSupportActionBar(toolbar)
-        val fab = view.fab
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
-        }
+        view.fab.setOnClickListener { onFabClick() }
 
         notesData.addAll(SampleData().getNotes())
         for (note in notesData) {
@@ -43,6 +40,11 @@ class MainActivity : AppCompatActivity() {
 
         recyclerView = view.recyclerView
         initRecyclerView()
+    }
+
+    private fun onFabClick() {
+        intent = Intent(this, EditorActivity::class.java)
+        startActivity(intent)
     }
 
     private fun initRecyclerView() {
