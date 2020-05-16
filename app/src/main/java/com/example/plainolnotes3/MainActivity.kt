@@ -9,10 +9,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.plainolnotes3.databinding.ActivityMainBinding
-import com.example.plainolnotes3.model.NoteEntity
+import com.example.plainolnotes3.database.NoteEntity
 import com.example.plainolnotes3.ui.NotesAdapter
 import com.example.plainolnotes3.utilities.SampleData
-import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main.view.*
 import kotlinx.android.synthetic.main.content_main.view.*
 
