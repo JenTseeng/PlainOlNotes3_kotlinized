@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.plainolnotes3.databinding.NoteListItemBinding
-import com.example.plainolnotes3.model.NoteEntity
+import com.example.plainolnotes3.database.NoteEntity
 
 class NotesAdapter(
     private val mNotes: List<NoteEntity>

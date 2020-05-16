@@ -1,7 +1,6 @@
 package com.example.plainolnotes3.utilities
 
-import android.provider.ContactsContract
-import com.example.plainolnotes3.model.NoteEntity
+import com.example.plainolnotes3.database.NoteEntity
 import java.util.*
 import kotlin.collections.ArrayList
 
