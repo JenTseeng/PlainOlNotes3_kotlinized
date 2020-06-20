@@ -19,7 +19,7 @@ interface NoteDao {
     @Delete
     fun deleteNote(note: NoteEntity)
 
-    @Query("SELECT * FROM notes WHERE id = :id")
+    @Query("SELECT * FROM notes WHERE noteId = :id")
     fun getNoteById(id: Int): NoteEntity
 
     @Query("SELECT * FROM notes ORDER BY date DESC")
