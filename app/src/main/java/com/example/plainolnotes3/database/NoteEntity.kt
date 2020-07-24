@@ -5,9 +5,9 @@ import androidx.room.PrimaryKey
 import java.util.*
 
 @Entity(tableName = "notes")
-data class NoteEntity constructor(
+data class NoteEntity(
     @PrimaryKey(autoGenerate = true)
-    val noteId: Int? = null,
+    var noteId: Int? = null,
     var date: Date? = null,
     var text: String? = null
 ) {

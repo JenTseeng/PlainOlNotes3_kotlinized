@@ -1,7 +1,7 @@
 package com.example.plainolnotes3.database
 
 import androidx.room.TypeConverter
-import java.util.Date
+import java.util.*
 
 class DateConverter {
     companion object
