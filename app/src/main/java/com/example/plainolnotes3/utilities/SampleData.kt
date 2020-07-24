@@ -5,6 +5,8 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 class SampleData {
+
+    companion object {
     private val SAMPLE_TEXT_1 = "A simple note"
     private val SAMPLE_TEXT_2 = "A note with a\nline feed"
     private val SAMPLE_TEXT_3 = """
@@ -18,13 +20,13 @@ class SampleData {
         calendar.add(Calendar.MILLISECOND, diff)
         return calendar.time
     }
+        fun getNotes(): List<NoteEntity> {
+            val notes = ArrayList<NoteEntity>()
+            notes.add(NoteEntity(date = getDate(0), text = SAMPLE_TEXT_1))
+            notes.add(NoteEntity(date = getDate(-1), text = SAMPLE_TEXT_2))
+            notes.add(NoteEntity(date = getDate(-2), text = SAMPLE_TEXT_3))
 
-    fun getNotes(): List<NoteEntity> {
-        val notes = ArrayList<NoteEntity>()
-        notes.add(NoteEntity(date = getDate(0), text = SAMPLE_TEXT_1))
-        notes.add(NoteEntity(date = getDate(-1), text = SAMPLE_TEXT_2))
-        notes.add(NoteEntity(date = getDate(-2), text = SAMPLE_TEXT_3))
-
-        return notes
+            return notes
+        }
     }
 }

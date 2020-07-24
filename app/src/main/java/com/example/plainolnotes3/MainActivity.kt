@@ -6,12 +6,13 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.plainolnotes3.databinding.ActivityMainBinding
 import com.example.plainolnotes3.database.NoteEntity
 import com.example.plainolnotes3.ui.NotesAdapter
-import com.example.plainolnotes3.utilities.SampleData
+import com.example.plainolnotes3.viewmodel.MainViewModel
 import kotlinx.android.synthetic.main.activity_main.view.*
 import kotlinx.android.synthetic.main.content_main.view.*
 
@@ -19,6 +20,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var recyclerView: RecyclerView
     private lateinit var notesAdapter: NotesAdapter
+    private lateinit var mainViewModel: MainViewModel
 
     private val notesData = ArrayList<NoteEntity>()
 
@@ -28,17 +30,24 @@ class MainActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        val toolbar = view.toolbar
-        setSupportActionBar(toolbar)
-        view.fab.setOnClickListener { onFabClick() }
+        setSupportActionBar(view.toolbar)
+        recyclerView = view.recyclerView
 
-        notesData.addAll(SampleData().getNotes())
+        initViewModel()
+        initRecyclerView()
+        notesData.addAll(mainViewModel.notes)
+
+        view.fab.setOnClickListener { onFabClick() }
         for (note in notesData) {
             Log.i("PlainOlNotes", note.toString())
         }
 
-        recyclerView = view.recyclerView
-        initRecyclerView()
+
+
+    }
+
+    private fun initViewModel() {
+        mainViewModel = ViewModelProvider.NewInstanceFactory().create(MainViewModel::class.java)
     }
 
     private fun onFabClick() {
