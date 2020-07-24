@@ -21,9 +21,9 @@ class SampleData {
 
     fun getNotes(): List<NoteEntity> {
         val notes = ArrayList<NoteEntity>()
-        notes.add(NoteEntity(date = getDate(0), text = SAMPLE_TEXT_1))
-        notes.add(NoteEntity(date = getDate(-1), text = SAMPLE_TEXT_2))
-        notes.add(NoteEntity(date = getDate(-2), text = SAMPLE_TEXT_3))
+        notes.add(NoteEntity(1, getDate(0), SAMPLE_TEXT_1))
+        notes.add(NoteEntity(2, getDate(-1), SAMPLE_TEXT_2))
+        notes.add(NoteEntity(3, getDate(-2), SAMPLE_TEXT_3))
 
         return notes
     }
